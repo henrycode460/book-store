@@ -18,7 +18,7 @@ module.exports = { // eslint-disable-line
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+    
     ],
     "rules": {
         "react/prop-types": "off"
