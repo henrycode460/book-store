@@ -4,7 +4,7 @@ import FormInput from './FormInput';
 
 class Book extends React.Component {
    
-        state = {
+        state = { // eslint-disable-line
             books: [
               {
                 id: 1,
