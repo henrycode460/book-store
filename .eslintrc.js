@@ -8,7 +8,7 @@ module.exports = { // eslint-disable-line
         "plugin:react/recommended",
       
     ],
-    "parser": "@babel/eslint-parser",
+ "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
