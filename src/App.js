@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Components/Header'
-import Book from './Components/Books';
 import Categories from './Components/Categories';
+import { Book } from './Components/Book';
 
 
 class App extends React.Component {
