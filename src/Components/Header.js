@@ -10,7 +10,7 @@ class Header extends React.Component {
 
         <ul className="nav-header">
           <li className="nav-link">
-            <Link className="nav-link" to="/Book">Books</Link>
+            <Link className="nav-link" to="/Home">Book</Link>
           </li>
           <li className="nav-link">
             <Link className="nav-link" to="/Catogeries">Categories</Link>

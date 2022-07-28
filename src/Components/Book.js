@@ -1,32 +1,98 @@
 import React from 'react';
-import BookList from './BookList';
-import FormInput from './FormInput';
+import { FaTrash } from 'react-icons/fa';
+import { removeBook } from '../redux/books/Books'
+import { useDispatch } from 'react-redux';
 
-class Book extends React.Component {
-   
-        state = { 
-            books: [
-              {
-                id: 1,
-                title: "Setting Development Environment",
-                author: "David Johnson"
-              },
-              
-            ]
-       
-    }
-    
-  render() {
-    return (
-        <div>
-        <BookList books={this.state.books} /> 
-        <div>
-           <FormInput/>
-        </div> 
-        </div>
 
-    );
-  }
-}
+const Book = ({ id, title, author }) => {
+  const dispatch = useDispatch();
+  const deleteBook = () => dispatch(removeBook(id));
 
-export {Book};
+  return (
+    <div className="container">
+      <h3>{title}</h3>
+      
+      <h4>{author}</h4>
+      <button type="button" onClick={deleteBook}>
+        <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
+      </button>
+    </div>
+  );
+ 
+};
+
+
+
+export {Book } ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

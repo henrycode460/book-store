@@ -1,6 +1,6 @@
 # Book Store
 
-> "Math magicians" is a website for all reader. It is a Single Page App (SPA) that allows users to:
+> "Book Store" is a website for all readers. It is a Single Page App (SPA) that allows readers to:
 
 - Add a book the want to read
 - Remove the book once they are done reading
