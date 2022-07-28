@@ -3,19 +3,22 @@ import './style.css';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Components/Header'
 import Categories from './Components/Categories';
-import { Book } from './Components/Book';
+import { Utilities } from './Components/Utilities';
+import { Provider } from 'react-redux';
+import store from '../src/redux/configureStore';
 
 
 class App extends React.Component {
   render() {
     return (
+      <Provider store={store}> 
       <>
         <Header />
         <div className="container">
 
           <Routes>
-            <Route path="/Book" element={<Book />} />
-            <Route index element={<Book />} />
+            <Route path="/Utilities" element={<Utilities />} />
+            <Route index element={<Utilities />} />
             <Route path="/Catogeries" element={<Categories />} />
             
           </Routes>
@@ -23,7 +26,7 @@ class App extends React.Component {
         </div>
 
       </>
-
+      </Provider>
     );
   }
 }

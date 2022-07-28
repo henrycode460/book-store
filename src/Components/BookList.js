@@ -1,24 +1,29 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
+import {Book} from './Book';
+
+const BooksList = ({ books }) => (
+  <div className="books-list">
+    {books.map(({ id, title, author }) => (
+      <Book key={id} id={id} title={title} author={author} />
+    ))}
+  </div>
+);
+
+BooksList.propTypes = PropTypes.node.isRequired;
+
+export default BooksList;
 
 
-class BookList extends React.Component {
-    
-    
-  render() {
-    return (
-        <ul>
-                 {this.props.books.map(todo =>  (   
-                <li className='list-style' key={todo.id}> 
-                <h3>{todo.title}</h3> 
-                <p>{todo.author}</p>
-                <button className="removeBtn">Remove</button> 
-               </li>   
 
-                  ))}
-        </ul>
 
-    );
-  }
-}
 
-export default BookList;
+
+
+
+
+
+
+
+
+

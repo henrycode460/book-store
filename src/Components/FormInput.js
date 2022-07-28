@@ -1,23 +1,75 @@
-import React from 'react';
+import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { addBook } from '../redux/books/Books';
+import { FaPlusCircle } from 'react-icons/fa';
 
-class FormInput extends React.Component {
-   
-        
+const InputBook = () => {
+  const dispatch = useDispatch();
+  const [inputBook, setInpuBook] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addBook(inputBook));
+    setInpuBook({
+      title: "",
+      author:""
+    })
     
-  render() {
-    return (
-        <div>
-            <h3>ADD NEW BOOK</h3>
-            <input type="text" placeholder='Enter Title'/>
-            <input type="text" placeholder='Enter Author'/>
-            <button>Add Book</button>
-        </div> 
-       
+  };
 
-        
+  const handleInputChange = (event) => {
+    setInpuBook((book) => ({
+      ...book,
+      [event.target.name]: event.target.value,
+      
 
-    );
-  }
-}
 
-export default FormInput;
+    }));
+  };
+
+  return (
+    <form className="form-container" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input-text"
+        placeholder="Add book..."
+        name="title"
+        value={inputBook.title}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        className="input-text"
+        placeholder="Add author..."
+        name="author"
+        onChange={handleInputChange}
+        value={inputBook.author}
+      />
+      <button type="submit" className="input-submit">
+        <FaPlusCircle
+          style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
+        />
+      </button>
+    </form>
+  );
+};
+
+export default InputBook;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
