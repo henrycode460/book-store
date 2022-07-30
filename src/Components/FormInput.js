@@ -1,30 +1,33 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { addBook } from '../redux/books/Books';
 import { FaPlusCircle } from 'react-icons/fa';
+import { addBook } from '../redux/books/Books';
 
-const InputBook = () => {
+
+function InputBook() {
+  const initFormState = {
+    title: '',
+    author: '',
+  };
+
+  const [book, setBook] = useState(initFormState);
   const dispatch = useDispatch();
-  const [inputBook, setInpuBook] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBook({ ...book, [name]: value });
+  };
+
+  const resetForm = () => {
+    setBook({ ...book, title: '', author: '' });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook(inputBook));
-    setInpuBook({
-      title: "",
-      author:""
-    })
-    
-  };
+    const { title, author } = book;
 
-  const handleInputChange = (event) => {
-    setInpuBook((book) => ({
-      ...book,
-      [event.target.name]: event.target.value,
-      
-
-
-    }));
+    dispatch(addBook(title, author));
+    resetForm();
   };
 
   return (
@@ -34,7 +37,7 @@ const InputBook = () => {
         className="input-text"
         placeholder="Add book..."
         name="title"
-        value={inputBook.title}
+        value={book.title}
         onChange={handleInputChange}
       />
       <input
@@ -42,8 +45,8 @@ const InputBook = () => {
         className="input-text"
         placeholder="Add author..."
         name="author"
+        value={book.author}
         onChange={handleInputChange}
-        value={inputBook.author}
       />
       <button type="submit" className="input-submit">
         <FaPlusCircle
@@ -52,24 +55,6 @@ const InputBook = () => {
       </button>
     </form>
   );
-};
+}
 
 export default InputBook;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
