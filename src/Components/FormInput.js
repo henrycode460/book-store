@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { FaPlusCircle } from 'react-icons/fa';
 import { addBook } from '../redux/books/Books';
+import './inputForm.css'
 
 
 function InputBook() {
@@ -31,10 +31,16 @@ function InputBook() {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <>
+    <div> 
+    <div className='vertical-line-three'></div>
+    <h2 className="form-title">ADD NEW BOOK</h2>
+    </div>
+    <div> 
+    <form className="input-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="input-text"
+        className="input-field input-field-one"
         placeholder="Add book..."
         name="title"
         value={book.title}
@@ -42,18 +48,16 @@ function InputBook() {
       />
       <input
         type="text"
-        className="input-text"
+        className="input-field"
         placeholder="Add author..."
         name="author"
         value={book.author}
         onChange={handleInputChange}
       />
-      <button type="submit" className="input-submit">
-        <FaPlusCircle
-          style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
-        />
-      </button>
+      <button type="submit" className="submit-btn">ADD BOOK</button>
     </form>
+    </div>
+    </>
   );
 }
 
