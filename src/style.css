@@ -1,5 +1,5 @@
 .navigation {
-  padding: 24px 4%;
+  padding: 15px 4%;
   background-color: #fff;
   border-bottom: 1px solid #e8e8e8;
   display: flex;
@@ -25,7 +25,9 @@
 }
 
 .navigation .nav-link:hover {
-  color: black;
+  color: rgb(0 0 0);
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
 }
 
 .logoStyle {
@@ -53,9 +55,10 @@
 
 .nav-image {
   cursor: pointer;
-  width: 2.813rem;
-  height: 2.813rem;
+  width: 1.713rem;
+  height: 1.713rem;
   border-radius: 50%;
   border: 1px solid #e8e8e8;
   background-color: #fff;
+  float: right;
 }

@@ -16,7 +16,7 @@ class Header extends React.Component {
           <li className="nav-link">
             <Link className="nav-link" to="/Catogeries">Categories</Link>
           </li>
-          <ImUser className="nav-image" style={{ color: '#0290ff', fontSize: '16px', marginLeft:'400px', borderRadius:'50%', border:'0.5px solid blue', padding:'5px 5px' }} />
+          <ImUser className="nav-image" style={{ color: '#0290ff', fontSize: '16px', marginLeft:'500px', borderRadius:'50%', border:'0.5px solid blue', padding:'5px 5px' }} />
           
 
         </ul>

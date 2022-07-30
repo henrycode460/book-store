@@ -31,7 +31,7 @@ const Book = ({ bookId, title, author }) => {
       </div>
     
       </div>
-
+<div className='progress-wrap'>
 <div className="Progress-Container">
 
 <div className="circle-wrap">
@@ -57,7 +57,7 @@ const Book = ({ bookId, title, author }) => {
 </div>
 
 <div className='vertical-line-two'></div>
-
+</div>
 
 <div className='button-div'>
   <h4 className='button-div-heading'>CURRENT CHAPTER</h4>
