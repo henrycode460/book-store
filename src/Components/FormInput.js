@@ -3,29 +3,32 @@ import React, { useState } from 'react';
 import { addBook } from '../redux/books/Books';
 import { FaPlusCircle } from 'react-icons/fa';
 
-const InputBook = () => {
+function InputBook() {
+  const initFormState = {
+    title: '',
+    author: '',
+  };
+
+  const [book, setBook] = useState(initFormState);
   const dispatch = useDispatch();
-  const [inputBook, setInpuBook] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBook({ ...book, [name]: value });
+  };
+
+  const resetForm = () => {
+    setBook({ ...book, title: '', author: '' });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook(inputBook));
-    setInpuBook({
-      title: "",
-      author:""
-    })
-    
+    const { title, author } = book;
+
+    dispatch(addBook(title, author));
+    resetForm();
   };
 
-  const handleInputChange = (event) => {
-    setInpuBook((book) => ({
-      ...book,
-      [event.target.name]: event.target.value,
-      
-
-
-    }));
-  };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
@@ -34,7 +37,7 @@ const InputBook = () => {
         className="input-text"
         placeholder="Add book..."
         name="title"
-        value={inputBook.title}
+        value={book.title}
         onChange={handleInputChange}
       />
       <input
@@ -43,16 +46,16 @@ const InputBook = () => {
         placeholder="Add author..."
         name="author"
         onChange={handleInputChange}
-        value={inputBook.author}
+        value={book.author}
       />
       <button type="submit" className="input-submit">
         <FaPlusCircle
-          style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
+          style={{ fontSize: '20px', marginTop: '2px', color: 'black'  }}
         />
       </button>
     </form>
   );
-};
+}
 
 export default InputBook;
 
