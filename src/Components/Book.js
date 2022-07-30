@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
 import { removeBook } from '../redux/books/Books';
@@ -19,7 +18,7 @@ const Book = ({ bookId, title, author }) => {
   );
 };
 
-Book.propTypes = PropTypes.node;
+
 
 export default Book;
 

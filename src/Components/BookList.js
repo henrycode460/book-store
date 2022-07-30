@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
 import Book from './Book';
 
 const BooksList = ({ books }) => (
@@ -17,7 +16,7 @@ const BooksList = ({ books }) => (
   </>
 );
 
-BooksList.propTypes = PropTypes.node.isRequired;
+
 
 export default BooksList;
 
