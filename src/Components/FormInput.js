@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { addBook } from '../redux/books/Books';
 import { FaPlusCircle } from 'react-icons/fa';
+import { addBook } from '../redux/books/Books';
+
 
 function InputBook() {
   const initFormState = {
@@ -29,7 +30,6 @@ function InputBook() {
     resetForm();
   };
 
-
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       <input
@@ -45,12 +45,12 @@ function InputBook() {
         className="input-text"
         placeholder="Add author..."
         name="author"
-        onChange={handleInputChange}
         value={book.author}
+        onChange={handleInputChange}
       />
       <button type="submit" className="input-submit">
         <FaPlusCircle
-          style={{ fontSize: '20px', marginTop: '2px', color: 'black'  }}
+          style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
         />
       </button>
     </form>
@@ -58,21 +58,3 @@ function InputBook() {
 }
 
 export default InputBook;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

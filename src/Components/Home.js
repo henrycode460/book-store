@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { retrieveBooks } from '../redux/books/Books';
 import InputBook from './FormInput';
 import BooksList from './BookList';
-import { retrieveBook } from '../redux/books/Books';
 
-import { useEffect } from 'react';
-
-const Utilities = () => {
+const Home = () => {
   const books = useSelector((state) => state.books, shallowEqual);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(retrieveBook());
+    dispatch(retrieveBooks());
   }, []);
 
   return (
@@ -25,5 +22,4 @@ const Utilities = () => {
   );
 };
 
-
-export  {Utilities};
+export {Home};

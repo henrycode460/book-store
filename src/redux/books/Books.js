@@ -1,28 +1,28 @@
 import { v4 as uuidv4 } from 'uuid';
+import BookService from '../../Services/Service';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-export const RETRIEVE_BOOKS = "bookstore/books/RETRIEVE_BOOKS";
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-import BookService from '../../Services/Service.js';
+const RETRIEVE_BOOKS = 'bookstore/books/RETRIEVE_BOOKS';
 
-const defaultState = {}; 
-export default function booksReducer(state = defaultState, action) {
-   const { type, payload } = action;
+const initialState = {};
+
+const reducer = (state = initialState, action) => {
+  const { type, payload } = action;
   switch (type) {
     case RETRIEVE_BOOKS:
       return payload;
-      
     case ADD_BOOK:
-      return {...state, payload};
-     
-      case REMOVE_BOOK:
-       return Object.fromEntries(Object.entries(state).filter((book) => book[0] !== payload.id));
+      return { ...state, ...payload };
+    case REMOVE_BOOK:
+      // eslint-disable-next-line max-len
+      return Object.fromEntries(Object.entries(state).filter((book) => book[0] !== payload.id));
     default:
       return state;
   }
-}
+};
 
-export const retrieveBook = () => async (dispatch) => {
+export const retrieveBooks = () => async (dispatch) => {
   try {
     const res = await BookService.getAll();
     dispatch({
@@ -32,15 +32,15 @@ export const retrieveBook = () => async (dispatch) => {
   } catch (err) {
     throw new Error(err);
   }
-}
-
-
+};
 
 export const addBook = (title, author) => async (dispatch) => {
-const item_id= uuidv4();
+  try {
+    // eslint-disable-next-line camelcase
+    const item_id = uuidv4();
     const category = null;
     const newBook = {
-   
+      // eslint-disable-next-line camelcase
       item_id,
       title,
       author,
@@ -50,7 +50,7 @@ const item_id= uuidv4();
     dispatch({
       type: ADD_BOOK,
       payload: {
-    
+        // eslint-disable-next-line camelcase
         item_id: [
           {
             title,
@@ -60,25 +60,21 @@ const item_id= uuidv4();
         ],
       },
     });
+  } catch (err) {
+    throw new Error(err);
   }
+};
 
-  export const removeBook = (id) => async (dispatch) => {
-    
-      await BookService.remove(id);
-      dispatch({
-        type: REMOVE_BOOK,
-        payload: { id },
-      });
-    }
+export const removeBook = (id) => async (dispatch) => {
+  try {
+    await BookService.remove(id);
+    dispatch({
+      type: REMOVE_BOOK,
+      payload: { id },
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
+export default reducer;
